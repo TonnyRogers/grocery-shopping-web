@@ -1,0 +1,52 @@
+export const theme = {
+  colors: {
+    background: 'hsl(35, 20%, 98%)',
+    foreground: 'hsl(140, 15%, 15%)',
+    card: 'hsl(0, 0%, 100%)',
+    cardForeground: 'hsl(140, 15%, 15%)',
+    popover: 'hsl(0, 0%, 100%)',
+    popoverForeground: 'hsl(140, 15%, 15%)',
+    primary: 'hsl(140, 25%, 52%)',
+    primaryForeground: 'hsl(0, 0%, 100%)',
+    primaryLight: 'hsl(140, 30%, 75%)',
+    primaryDark: 'hsl(140, 25%, 35%)',
+    secondary: 'hsl(35, 25%, 95%)',
+    secondaryForeground: 'hsl(140, 20%, 25%)',
+    muted: 'hsl(140, 10%, 95%)',
+    mutedForeground: 'hsl(140, 8%, 50%)',
+    accent: 'hsl(140, 20%, 92%)',
+    accentForeground: 'hsl(140, 25%, 25%)',
+    destructive: 'hsl(0, 75%, 60%)',
+    destructiveForeground: 'hsl(0, 0%, 100%)',
+    success: 'hsl(140, 50%, 45%)',
+    successForeground: 'hsl(0, 0%, 100%)',
+    warning: 'hsl(45, 95%, 60%)',
+    warningForeground: 'hsl(140, 15%, 15%)',
+    border: 'hsl(140, 15%, 88%)',
+    input: 'hsl(140, 15%, 95%)',
+    ring: 'hsl(140, 25%, 52%)',
+  },
+  gradients: {
+    primary: 'linear-gradient(135deg, hsl(140, 25%, 52%), hsl(140, 30%, 75%))',
+    card: 'linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(140, 10%, 95%) 100%)',
+    success: 'linear-gradient(135deg, hsl(140, 50%, 45%), hsl(140, 40%, 55%))',
+  },
+  shadows: {
+    soft: '0 2px 8px -2px hsl(140, 25%, 52%, 0.1)',
+    card: '0 4px 12px -4px hsl(140, 25%, 52%, 0.15)',
+    glow: '0 0 20px hsl(140, 25%, 52%, 0.2)',
+  },
+  radius: '0.75rem',
+  transitions: {
+    smooth: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    bounce: 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+  },
+  breakpoints: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+  },
+};
+
+export type Theme = typeof theme;
