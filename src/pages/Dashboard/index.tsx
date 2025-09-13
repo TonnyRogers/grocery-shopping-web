@@ -127,7 +127,7 @@ export function Dashboard() {
 };
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 140vh;
   background-color: ${({ theme }) => theme.colors.background};
   padding: 1rem;
   padding-bottom: 5rem;
