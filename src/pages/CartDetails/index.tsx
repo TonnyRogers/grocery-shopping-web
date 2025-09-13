@@ -124,30 +124,30 @@ export function CartDetails() {
 					</SummaryRow>
 				</Card>
 
-				<ProductsSection>
-					<SectionHeader>
-						<SectionTitle>Lista de Compra</SectionTitle>
-						<Button
-							onClick={() => navigate(`/add-product/${id}`)}
-							size="sm"
-							variant="primary"
-						>
-							<Plus
-								style={{ height: "16px", width: "16px", marginRight: "4px" }}
-							/>
-							Adc Item
-						</Button>
-					</SectionHeader>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						overflow: "scroll",
+						height: "44vh",
+						padding: "4px",
+					}}
+				>
+					<ProductsSection>
+						<SectionHeader>
+							<SectionTitle>Lista de Compra</SectionTitle>
+							<Button
+								onClick={() => navigate(`/add-product/${id}`)}
+								size="sm"
+								variant="primary"
+							>
+								<Plus
+									style={{ height: "16px", width: "16px", marginRight: "4px" }}
+								/>
+								Adc Item
+							</Button>
+						</SectionHeader>
 
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							overflow: "scroll",
-							height: "50vh",
-							padding: '4px',
-						}}
-					>
 						{products.map((product) => (
 							<ProductCard key={product.id} $completed={product.completed}>
 								<ProductRow>
@@ -196,8 +196,8 @@ export function CartDetails() {
 								</ProductRow>
 							</ProductCard>
 						))}
-					</div>
-				</ProductsSection>
+					</ProductsSection>
+				</div>
 
 				<Card style={{ padding: "16px" }}>
 					<ActionGrid>

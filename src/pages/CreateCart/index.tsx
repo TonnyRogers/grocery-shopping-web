@@ -95,7 +95,7 @@ export function CreateCart() {
 						display: "flex",
 						flexDirection: "column",
 						overflow: "scroll",
-						height: "70vh",
+						height: "65vh",
 						padding: "4px",
 					}}
 				>

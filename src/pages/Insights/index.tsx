@@ -72,7 +72,7 @@ export function Insights() {
 					display: "flex",
 					flexDirection: "column",
 					overflow: "scroll",
-					height: "85vh",
+					height: "65vh",
 					padding: "4px",
 				}}
 			>
