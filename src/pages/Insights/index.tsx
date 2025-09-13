@@ -177,7 +177,7 @@ export function Insights () {
 };
 
 const Container = styled.div`
-  min-height: 140vh;
+  min-height: 170vh;
   background: ${({ theme }) => theme.colors.background};
 `;
 

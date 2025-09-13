@@ -237,7 +237,7 @@ export function AddProduct() {
 };
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 140vh;
   background: ${({ theme }) => theme.colors.background};
 `;
 
