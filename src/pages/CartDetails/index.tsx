@@ -129,7 +129,7 @@ export function CartDetails() {
 						display: "flex",
 						flexDirection: "column",
 						overflow: "scroll",
-						height: "44vh",
+						height: "40vh",
 						padding: "4px",
 					}}
 				>
@@ -230,7 +230,9 @@ export function CartDetails() {
 }
 
 const Container = styled.div`
-	min-height: 100vh;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
 	background: ${({ theme }) => theme.colors.background};
 `;
 
@@ -267,6 +269,7 @@ const Subtitle = styled.p`
 const Content = styled.div`
 	padding: 16px;
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	gap: 24px;
 `;
