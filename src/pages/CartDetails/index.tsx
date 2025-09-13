@@ -20,12 +20,7 @@ export function CartDetails() {
 	const navigate = useNavigate();
 	const { id } = useParams();
 	const [currentCart, setCurrentCart] = useState<ShoppingCartType>();
-	const {
-    items,
-    removeProduct,
-		editProduct,
-		edit,
-  } = useShoppingCartContext();
+	const { items, removeProduct, editProduct, edit } = useShoppingCartContext();
 	const [products, setProducts] = useState<Product[]>([]);
 
 	const totalAmount = currentCart?.products.reduce(
@@ -37,14 +32,14 @@ export function CartDetails() {
 
 	const toggleProductComplete = (productId: string) => {
 		const product = products.find((prod) => prod.id === productId);
-		if(!id) return;
+		if (!id) return;
 
-		editProduct(id, productId, { completed: !product?.completed })
+		editProduct(id, productId, { completed: !product?.completed });
 	};
 
 	const deleteProduct = (productId: string) => {
-    if(!id) return;
-		removeProduct(id, productId)
+		if (!id) return;
+		removeProduct(id, productId);
 		toast({
 			title: "Item removed",
 			description: "Product has been removed from your cart.",
@@ -52,10 +47,10 @@ export function CartDetails() {
 	};
 
 	const completeCart = () => {
-		if(!id) return;
-		
+		if (!id) return;
+
 		edit(id, {
-			completed: true
+			completed: true,
 		});
 		toast({
 			title: "Cart completed!",
@@ -144,53 +139,64 @@ export function CartDetails() {
 						</Button>
 					</SectionHeader>
 
-					{products.map((product) => (
-						<ProductCard key={product.id} $completed={product.completed}>
-							<ProductRow>
-								<CheckButton
-									variant="ghost"
-									size="sm"
-									onClick={() => toggleProductComplete(product.id)}
-									$completed={product.completed}
-								>
-									{product.completed && (
-										<Check style={{ height: "12px", width: "12px" }} />
-									)}
-								</CheckButton>
-
-								<ProductInfo>
-									<ProductName $completed={product.completed}>
-										{product.name}
-									</ProductName>
-									<ProductDetails>
-										Qtde: {product.quantity} • ${product.price.toFixed(2)} cada
-									</ProductDetails>
-								</ProductInfo>
-
-								<ProductPrice>
-									${(product.price * product.quantity).toFixed(2)}
-								</ProductPrice>
-
-								<ActionButtons>
-									<Button
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							overflow: "scroll",
+							height: "50vh",
+							padding: '4px',
+						}}
+					>
+						{products.map((product) => (
+							<ProductCard key={product.id} $completed={product.completed}>
+								<ProductRow>
+									<CheckButton
 										variant="ghost"
 										size="sm"
-										style={{ height: "32px", width: "32px", padding: 0 }}
+										onClick={() => toggleProductComplete(product.id)}
+										$completed={product.completed}
 									>
-										<Edit3 style={{ height: "16px", width: "16px" }} />
-									</Button>
-									<Button
-										variant="ghost"
-										size="sm"
-										onClick={() => deleteProduct(product.id)}
-										style={{ height: "32px", width: "32px", padding: 0 }}
-									>
-										<Trash2 style={{ height: "16px", width: "16px" }} />
-									</Button>
-								</ActionButtons>
-							</ProductRow>
-						</ProductCard>
-					))}
+										{product.completed && (
+											<Check style={{ height: "12px", width: "12px" }} />
+										)}
+									</CheckButton>
+
+									<ProductInfo>
+										<ProductName $completed={product.completed}>
+											{product.name}
+										</ProductName>
+										<ProductDetails>
+											Qtde: {product.quantity} • ${product.price.toFixed(2)}{" "}
+											cada
+										</ProductDetails>
+									</ProductInfo>
+
+									<ProductPrice>
+										${(product.price * product.quantity).toFixed(2)}
+									</ProductPrice>
+
+									<ActionButtons>
+										<Button
+											variant="ghost"
+											size="sm"
+											style={{ height: "32px", width: "32px", padding: 0 }}
+										>
+											<Edit3 style={{ height: "16px", width: "16px" }} />
+										</Button>
+										<Button
+											variant="ghost"
+											size="sm"
+											onClick={() => deleteProduct(product.id)}
+											style={{ height: "32px", width: "32px", padding: 0 }}
+										>
+											<Trash2 style={{ height: "16px", width: "16px" }} />
+										</Button>
+									</ActionButtons>
+								</ProductRow>
+							</ProductCard>
+						))}
+					</div>
 				</ProductsSection>
 
 				<Card style={{ padding: "16px" }}>
@@ -224,7 +230,7 @@ export function CartDetails() {
 }
 
 const Container = styled.div`
-	min-height: 140vh;
+	min-height: 100vh;
 	background: ${({ theme }) => theme.colors.background};
 `;
 
@@ -357,6 +363,7 @@ const SectionTitle = styled.h3`
 
 const ProductCard = styled(Card)<{ $completed: boolean }>`
 	padding: 16px;
+	margin-bottom: 8px;
 	opacity: ${({ $completed }) => ($completed ? 0.6 : 1)};
 `;
 

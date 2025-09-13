@@ -23,7 +23,7 @@ import {
 import useShoppingCartContext from "@/hooks/use-shopping-cart-context";
 
 function generateId() {
-  return `${Date.now().toString().slice(9,13)}`;
+	return `${Date.now().toString().slice(9, 13)}`;
 }
 
 export function CreateCart() {
@@ -90,59 +90,68 @@ export function CreateCart() {
 
 			<Content>
 				{/* Cart Icon */}
-				<IconContainer>
-					<CartIconWrapper>
-						<ShoppingCart className="h-10 w-10" />
-					</CartIconWrapper>
-				</IconContainer>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						overflow: "scroll",
+						height: "70vh",
+						padding: "4px",
+					}}
+				>
+					<IconContainer>
+						<CartIconWrapper>
+							<ShoppingCart className="h-10 w-10" />
+						</CartIconWrapper>
+					</IconContainer>
 
-				{/* Cart Name Input */}
-				<Card style={{ padding: "1.5rem" }}>
-					<FormContainer>
-						<FormField>
-							<Label htmlFor="cartName">Nome do carrinho</Label>
-							<Input
-								id="cartName"
-								value={cartName}
-								onChange={(e) => setCartName(e.target.value)}
-								placeholder="Enter cart name..."
-								autoFocus
-							/>
-						</FormField>
-
-						<FormField>
-							<Label htmlFor="cartDate">Data da compra</Label>
-							<DateInputWrapper>
-								<Calendar className="calendar-icon" />
+					{/* Cart Name Input */}
+					<Card style={{ padding: "1.5rem" }}>
+						<FormContainer>
+							<FormField>
+								<Label htmlFor="cartName">Nome do carrinho</Label>
 								<Input
-									id="cartDate"
-									type="date"
-									value={selectedDate}
-									onChange={(e) => setSelectedDate(e.target.value)}
-									style={{ paddingLeft: "2.5rem" }}
+									id="cartName"
+									value={cartName}
+									onChange={(e) => setCartName(e.target.value)}
+									placeholder="Enter cart name..."
+									autoFocus
 								/>
-							</DateInputWrapper>
-						</FormField>
-					</FormContainer>
-				</Card>
+							</FormField>
 
-				{/* Quick Cart Names */}
-				<QuickSelectSection>
-					<SectionTitle>Lista Básica</SectionTitle>
-					<QuickSelectGrid>
-						{quickCartNames.map((name) => (
-							<Button
-								key={name}
-								variant="outline"
-								onClick={() => setCartName(name)}
-								style={{ height: "3rem", justifyContent: "flex-start" }}
-							>
-								{name}
-							</Button>
-						))}
-					</QuickSelectGrid>
-				</QuickSelectSection>
+							<FormField>
+								<Label htmlFor="cartDate">Data da compra</Label>
+								<DateInputWrapper>
+									<Calendar className="calendar-icon" />
+									<Input
+										id="cartDate"
+										type="date"
+										value={selectedDate}
+										onChange={(e) => setSelectedDate(e.target.value)}
+										style={{ paddingLeft: "2.5rem" }}
+									/>
+								</DateInputWrapper>
+							</FormField>
+						</FormContainer>
+					</Card>
 
+					{/* Quick Cart Names */}
+					<QuickSelectSection>
+						<SectionTitle>Lista Básica</SectionTitle>
+						<QuickSelectGrid>
+							{quickCartNames.map((name) => (
+								<Button
+									key={name}
+									variant="outline"
+									onClick={() => setCartName(name)}
+									style={{ height: "3rem", justifyContent: "flex-start" }}
+								>
+									{name}
+								</Button>
+							))}
+						</QuickSelectGrid>
+					</QuickSelectSection>
+				</div>
 				{/* Create Button */}
 				<Card style={{ padding: "1rem" }}>
 					<Button

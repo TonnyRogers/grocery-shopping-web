@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-height: 140vh;
+  min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
@@ -77,7 +77,9 @@ export const DateInputWrapper = styled.div`
   }
 `;
 
-export const QuickSelectSection = styled.div``;
+export const QuickSelectSection = styled.div`
+  margin-top: 8px;
+`;
 
 export const SectionTitle = styled.h3`
   font-size: 1.125rem;
