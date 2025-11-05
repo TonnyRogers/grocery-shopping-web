@@ -115,7 +115,6 @@ export function CreateCart() {
 									value={cartName}
 									onChange={(e) => setCartName(e.target.value)}
 									placeholder="Enter cart name..."
-									autoFocus
 								/>
 							</FormField>
 

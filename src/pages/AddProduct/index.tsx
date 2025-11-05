@@ -110,23 +110,23 @@ export function AddProduct() {
 			</Header>
 
 			<Content>
-				<ProductIconContainer>
-					<ProductIcon>
-						<Package
-							style={{ height: "40px", width: "40px", color: "white" }}
-						/>
-					</ProductIcon>
-				</ProductIconContainer>
-
 				<div
 					style={{
 						display: "flex",
 						flexDirection: "column",
 						overflow: "scroll",
-						height: "45vh",
+						height: "62vh",
 						padding: "4px",
 					}}
 				>
+					<ProductIconContainer>
+						<ProductIcon>
+							<Package
+								style={{ height: "40px", width: "40px", color: "white" }}
+							/>
+						</ProductIcon>
+					</ProductIconContainer>
+
 					<Card style={{ padding: "24px" }}>
 						<FormContainer>
 							<FormField>
@@ -149,7 +149,6 @@ export function AddProduct() {
 										onChange={(e) => setProductName(e.target.value)}
 										placeholder="Enter product name..."
 										style={{ paddingLeft: "40px" }}
-										autoFocus
 									/>
 								</InputContainer>
 							</FormField>

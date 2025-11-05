@@ -5,20 +5,24 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Router } from "./routes/router";
 import ShoppingCartProvider from "./contexts/ShppingCartProvider";
+import { useDisableZoom } from "./hooks/use-disable-zoom";
 
 const queryClient = new QueryClient();
 
-
-const App = () => (
-  <ShoppingCartProvider>
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Router />
-    </TooltipProvider>
-  </QueryClientProvider>
-  </ShoppingCartProvider>
-);
+const App = () => {
+  useDisableZoom();
+  
+	return (
+		<ShoppingCartProvider>
+			<QueryClientProvider client={queryClient}>
+				<TooltipProvider>
+					<Toaster />
+					<Sonner />
+					<Router />
+				</TooltipProvider>
+			</QueryClientProvider>
+		</ShoppingCartProvider>
+	);
+};
 
 export default App;
